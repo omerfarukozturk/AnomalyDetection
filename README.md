@@ -6,3 +6,8 @@
 The rules are applied to a control chart on which the magnitude of some variable is plotted against time. The rules are based on the mean value and the standard deviation of the samples."
 
 https://en.wikipedia.org/wiki/Nelson_rules
+
+The script (AnomalyDetection.py) checks anomaly in daily credit card expenditure dataset according to average weekly expenses. This script uses the first 52 weeks in the training (for calculating 𝑥̅ and 𝜎), so rest for testing.
+
+Generates a table as csv file that is as follows:
+The code fills the cells by 1, if there is an anomaly for the respected week and rule; otherwise, the value of the cell is 0.
