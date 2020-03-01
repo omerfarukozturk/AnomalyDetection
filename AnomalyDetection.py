@@ -178,6 +178,7 @@ class AnomalyDetector:
 
         data['Rule7'] = values
 
+    # Rule 8: Eight points in a row exist with none within 1 standard deviation of the mean and the points are in both directions from the mean (bimodal, 2 or more factors in data set)
     def rule8(self, data, mean, sigma):
         if len(data) < 8: return
         values = [0]*len(data)
@@ -197,20 +198,22 @@ class AnomalyDetector:
 
 def loadData():
     dirname = os.path.dirname(os.path.realpath(__file__))
-    root_path = os.path.join(dirname, 'HW1_Question2_dataset.xlsx')
+    root_path = os.path.join(dirname, 'dataset.xlsx')
     df = pd.read_excel(root_path)
     return df
 
 def saveResult(data):
-    filename = 'HW1_Question2_results.csv'
+    filename = 'results.csv'
     dirname = os.path.dirname(os.path.realpath(__file__))
     path = os.path.join(dirname, filename)
     data.to_csv(path)
     print('Results are saved at \'%s\' as \'%s\'\n' % (dirname,filename))
 
 if __name__ == '__main__':
-    print('\nSample data loaded.')
+    
     df = loadData()
+    print('\nSample data loaded.')
+    
     df = df.drop('day', axis = 1)
 
     trainIndexLimit = 52 * 7
