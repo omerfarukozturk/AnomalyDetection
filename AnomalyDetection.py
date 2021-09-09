@@ -8,7 +8,7 @@ class AnomalyDetector:
 
         def isBetween(value, lower, upper):
             isBetween = value < upper and value > lower
-            return 0 if isBetween else 0
+            return 0 if isBetween else 1
 
         upperLimit = mean + 3 * sigma
         lowerLimit = mean - 3 * sigma
